@@ -1,0 +1,190 @@
+/* Reset de estilos */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-label {
+  font-weight: bold;
+  color: #333;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.form-check-label {
+  font-weight: normal;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.signature {
+  border: 2px dashed #007bff;
+  width: 100%;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+/* Estilos para tablas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th,
+td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+/* Estilos para checkboxes y radio buttons */
+.form-check-input {
+  margin-right: 10px;
+  transform: scale(1.5); /* Ajusta el valor según el tamaño que necesites */
+  transform-origin: 0 0; /* Asegura que el checkbox se escale desde la esquina superior izquierda */
+}
+
+.form-check-label {
+  font-weight: normal;
+  font-size: 16px; /* Ajusta el tamaño del texto según sea necesario */
+}
+
+/* Estilos para la imagen */
+#imagen {
+  margin-bottom: 20px;
+}
+
+/* Estilos para los checkboxes y radio buttons */
+.form-check {
+  margin-bottom: 15px;
+}
+
+/* Estilos para los elementos de la fila mb-3 */
+.mb-3 {
+  margin-bottom: 30px;
+}
+
+/* Estilos para los elementos de la columna col-md-6 */
+.col-md-6 {
+  margin-bottom: 20px;
+}
+
+/* Estilos para los mensajes de error */
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Estilos para el textarea */
+textarea.form-control.w-100 {
+  width: 100%;
+  min-height: 100px; /* Ajusta la altura según tus necesidades */
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+textarea.form-control.w-100:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.inspector {
+  display: flex;
+}
+
+.inspector .col-md-6 {
+  flex: 1;
+  margin-right: 10px; /* Espacio entre los elementos, puedes ajustarlo según necesites */
+}
+
+.inspector .col-md-6:last-child {
+  margin-right: 0; /* Para eliminar el espacio derecho del último elemento */
+}
+
+/* Clase genérica para colocar divs uno al lado del otro */
+.flex-container {
+  display: flex;
+}
+
+/* Estilo para cada div dentro del contenedor */
+.flex-item {
+  flex: 1;
+  margin-right: 10px; /* Espacio entre los elementos, puedes ajustarlo según necesites */
+}
+
+/* Eliminar el margen derecho del último elemento */
+.flex-item:last-child {
+  margin-right: 0;
+}
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(3); /* IE */
+  -moz-transform: scale(3); /* FF */
+  -webkit-transform: scale(3); /* Safari and Chrome */
+  -o-transform: scale(3); /* Opera */
+  transform: scale(3);
+  padding: 10px;
+}
+
+/* Might want to wrap a span around your checkbox text */
+.checkboxtext
+{
+  /* Checkbox text */
+  font-size: 110%;
+  display: inline;
+}

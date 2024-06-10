@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css"> <!-- Agregamos el enlace a nuestro archivo de estilos personalizado -->
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h3>Planilla de Inspección de Árboles</h3>
+                <hr>
+                <form id="form">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="aviso" class="form-label">Aviso</label>
+                            <input type="text" class="form-control" id="aviso">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="arme" class="form-label">Arme</label>
+                            <input type="text" class="form-control" id="arme">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="fecha" class="form-label">Fecha de relevamiento</label>
+                            <input type="date" class="form-control" id="fecha" />
+                        </div>
+                    </div>
+
+                    <h3>UBICACIÓN DEL ÁRBOL</h3>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="especie" class="form-label">Especie botánica</label>
+                            <input type="text" class="form-control" id="especie" />
+                        </div>
+                        <div class="col-md-6">
+                            <label for="calle" class="form-label">Calle</label>
+                            <input type="text" class="form-control" id="calle" />
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="numero" class="form-label">N°</label>
+                            <input type="text" class="form-control" id="numero" />
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Árbol Seco o semi</label>
+                            <div class="form-check">
+                                <input type="radio" name="Seco" class="form-check-input" id="Seco" value="1" />
+                                <label for="Seco" class="form-check-label">Árbol Seco</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" name="Seco" class="form-check-input" id="SemiSeco" value="2" />
+                                <label for="SemiSeco" class="form-check-label">Semi Seco</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>PARÁMETROS MECÁNICOS Y SANITARIOS DEL ÁRBOL</h3>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="Altura" class="form-label">Altura aprox. (m)</label>
+                            <input type="number" class="form-control" id="Altura" />
+                        </div>
+                        <div class="col-md-6">
+                            <label for="DAP" class="form-label">DAP (cm) </label>
+                            <input type="number" class="form-control" id="DAP" />
+                        </div>
+                    </div>
+
+                    <div class="flex-container">
+            <div class="row mb-3 flex-item">
+              <div class="col-md-6">
+                <label for="inclinacion" class="form-label">Inclinación:</label>
+                <div class="form-check">
+                  <input
+                    type="radio"
+                    name="inclinacion"
+                    class="form-check-input"
+                    id="inclinacion-si"
+                    value="1"
+                  />
+                  <label for="inclinacion-si" class="form-check-label"
+                    >Sí</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    type="radio"
+                    name="inclinacion"
+                    class="form-check-input"
+                    id="inclinacion-no"
+                    value="0"
+                    checked
+                  />
+                  <label for="inclinacion-no" class="form-check-label"
+                    >No</label
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="row mb-3 flex-item">
+              <div class="col-md-6">
+                <label for="Edad" class="form-label">mas o menos de 40</label>
+                <div class="form-check">
+                  <input
+                    type="radio"
+                    name="Edad"
+                    class="form-check-input"
+                    id="MasDe40"
+                    value="1"
+                  />
+                  <label for="MasDe40" class="form-check-label"
+                    >Más de 40</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    type="radio"
+                    name="Edad"
+                    class="form-check-input"
+                    id="MenosDe40"
+                    value="2"
+                  />
+                  <label for="MenosDe40" class="form-check-label"
+                    >Menos de 40</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+            <table>
+              <thead>
+                <tr>
+                  <th>Orientación de la inclinación</th>
+                  <th>Seleccionar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Hacia la calle</td>
+                  <td>
+                    <input
+                      type="checkbox"
+                      name="opciones"
+                      value="hacia_la_calle"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Descopado</td>
+                  <td>
+                    <input type="checkbox" name="opciones" value="descopado" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Hacia la propiedad</td>
+                  <td>
+                    <input
+                      type="checkbox"
+                      name="opciones"
+                      value="hacia_la_propiedad"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Descopado y brotado</td>
+                  <td>
+                    <input
+                      type="checkbox"
+                      name="opciones"
+                      value="descopado_y_brotado"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Hacia el largo de la vereda</td>
+                  <td>
+                    <input
+                      type="checkbox"
+                      name="opciones"
+                      value="hacia_el_largo_de_la_vereda"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Copa desbalanceada</td>
+                  <td>
+                    <input
+                      type="checkbox"
+                      name="opciones"
+                      value="copa_desbalanceada"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h3>FUSTE</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th rowspan="2">FUSTE</th>
+                  <th colspan="3">Descortezamiento: Cavidades</th>
+                </tr>
+                <tr>
+                  <th>basal</th>
+                  <th>media</th>
+                  <th>alto</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Pequeñas</td>
+                  <td><input type="radio" name="pequenas" value="basal" /></td>
+                  <td><input type="radio" name="pequenas" value="media" /></td>
+                  <td><input type="radio" name="pequenas" value="alto" /></td>
+                </tr>
+                <tr>
+                  <td>Grandes</td>
+                  <td><input type="radio" name="grandes" value="basal" /></td>
+                  <td><input type="radio" name="grandes" value="media" /></td>
+                  <td><input type="radio" name="grandes" value="alto" /></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table>
+              <thead>
+                <tr>
+                  <th>Opciones</th>
+                  <th>Seleccionar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Fructificaciones</td>
+                  <td>
+                    <input
+                      type="checkbox"
+                      name="selecciones"
+                      value="fructificaciones"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Chorreados</td>
+                  <td>
+                    <input
+                      type="checkbox"
+                      name="selecciones"
+                      value="chorreados"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Codominancias</td>
+                  <td>
+                    <input
+                      type="checkbox"
+                      name="selecciones"
+                      value="codominancias"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="flex-container">
+            <div class="col-md-6 flex-item">
+              <label for="Cavidad" class="form-label">Cavidad longitudinal en el fuste (m)</label>
+              <input type="text" class="form-control" id="Cavidad" />
+            </div>
+            <div class="col-md-6 flex-item">
+              <label for="Espesor" class="form-label">Espesor de pared remanente (cm)</label>
+              <input type="text" class="form-control" id="Espesor" />
+            </div>
+          </div>
+<h3>RAIZ</h3>
+
+<table>
+  <thead>
+      <tr>
+          <th>Opciones</th>
+          <th>Seleccionar</th>
+      </tr>
+  </thead>
+  <tbody>
+      <!-- Expuesta -->
+      <tr>
+          <td>Expuesta</td>
+          <td><input type="checkbox" name="opciones" value="expuesta"></td>
+      </tr>
+      <!-- Levanta vereda m2 -->
+      <tr>
+          <td>Levanta vereda m2</td>
+          <td><input type="checkbox" name="opciones" value="levanta_vereda_m2"></td>
+      </tr>
+      <!-- Provoca fisuras en el frente de la propiedad -->
+      <tr>
+          <td>Provoca fisuras en el frente de la propiedad</td>
+          <td>
+              <label><input type="radio" name="provoca_fisuras" value="si">Sí</label>
+              <label><input type="radio" name="provoca_fisuras" value="no">No</label>
+          </td>
+      </tr>
+  </tbody>
+</table>
+
+<h3>RAMAS</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>RAMAS</th>
+      <th>Seleccionar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Tocones</td>
+      <td>
+        <input
+          type="checkbox"
+          name="opcionesramas"
+          value="Tocones"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>Quebradas / Fisuradas</td>
+      <td>
+        <input type="checkbox" name="opcionesramas" value="Quebradasf" />
+      </td>
+    </tr>
+    <tr>
+      <td>Codominancias</td>
+      <td>
+        <input
+          type="checkbox"
+          name="opcionesramas"
+          value="Codominancias"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>Excesivas / Cruzadas</td>
+      <td>
+        <input
+          type="checkbox"
+          name="opcionesramas"
+          value="ExcesivasC"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>Secas / Secas en las puntas</td>
+      <td>
+        <input
+          type="checkbox"
+          name="opcionesramas"
+          value="secasP"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>Con cavidades / Tumores / Cancros</td>
+      <td>
+        <input
+          type="checkbox"
+          name="opcionesramas"
+          value="cavidadesTC"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>Con mal ángulo de inserción</td>
+      <td>
+        <input
+          type="checkbox"
+          name="opcionesramas"
+          value="anguloI"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>Bajas</td>
+      <td>
+        <input
+          type="checkbox"
+          name="opcionesramas"
+          value="Bajas"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>Que invaden espacio aéreo</td>
+      <td>
+        <input
+          type="checkbox"
+          name="opcionesramas"
+          value="espacio_aereo"
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h3>HOJAS</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>HOJAS</th>
+      <th>Seleccionar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>De coloración anormal</td>
+      <td>
+        <input
+          type="checkbox"
+          name="opcioneshojas"
+          value="coloración"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>Defoliación Total</td>
+      <td>
+        <input type="checkbox" name="opcioneshojas" value="DefoliaciónT" />
+      </td>
+    </tr>
+    <tr>
+      <td>Con signos de insectos</td>
+      <td>
+        <input
+          type="checkbox"
+          name="opcioneshojas"
+          value="signosInsectos"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>Con manchas foliares</td>
+      <td>
+        <input
+          type="checkbox"
+          name="opcioneshojas"
+          value="manchasFol"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>Defoliación Parcial</td>
+      <td>
+        <input
+          type="checkbox"
+          name="opcioneshojas"
+          value="Defoliaciónp"
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="col-md-6">
+  <label for="SíntomasE" class="form-label">Síntomas de enfermedades</label>
+  <input type="text" class="form-control" id="SíntomasE" />
+</div>
+
+<h3>RECOMENDACIONES DEL INSPECTOR</h3>
+<table>
+  <thead>
+    <tr>
+      <th>A: OBJETIVOS DE LA PODA</th>
+      <th>Seleccionar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Reducción Riesgo</td>
+      <td>
+        <input
+          type="checkbox"
+          name="opcionesOBJETIVOS"
+          value="ReducciónR"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>Eliminar interferencias</td>
+      <td>
+        <input type="checkbox" name="opcionesOBJETIVOS" value="Einterferencias" />
+      </td>
+    </tr>
+    <tr>
+      <td>Adecuación al sitio</td>
+      <td>
+        <input
+          type="checkbox"
+          name="opcionesOBJETIVOS"
+          value="AdecuaciónS"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>Regulación de estructura</td>
+      <td>
+        <input
+          type="checkbox"
+          name="opcionesOBJETIVOS"
+          value="RegulaciónE"
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>B: TIPOS DE PODA</th>
+      <th>Seleccionar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Formación</td>
+      <td>
+        <input
+          type="checkbox"
+          name="opcionesReducción"
+          value="Formación"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>Limpieza</td>
+      <td>
+        <input type="checkbox" name="opcionesReducción" value="Limpieza" />
+      </td>
+    </tr>
+    <tr>
+      <td>Aclareo</td>
+      <td>
+        <input
+          type="checkbox"
+          name="opcionesReducción"
+          value="Aclareo"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>Refaldado</td>
+      <td>
+        <input
+          type="checkbox"
+          name="opcionesReducción"
+          value="Refaldado"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>Terciado</td>
+      <td>
+        <input
+          type="checkbox"
+          name="opcionesReducción"
+          value="Terciado"
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>opciones</th>
+      <th>Seleccionar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Balanceo</td>
+      <td>
+        <input
+          type="checkbox"
+          name="opcionesReducción"
+          value="BalanceoO"
+        />
+      </td>
+    </tr>
+        <td>C: EXTRACCIÓN</td>
+        <td>
+          <input
+            type="checkbox"
+            name="opcionesReducción"
+            value="CEXTRACCIÓN"
+          />
+        </td>
+      </tr>
+    </tr>
+    <td>E: TRASPLANTE</td>
+    <td>
+      <input
+        type="checkbox"
+        name="opcionesReducción"
+        value="ETRASPLANTE"
+      />
+    </td>
+  </tr>
+</tr>
+<td>D: TRATAMIENTO SANITARIO</td>
+<td>
+  <input
+    type="checkbox"
+    name="opcionesReducción"
+    value="DTRATAMIENTO"
+  />
+</td>
+</tr>
+
+    </tbody>
+    
+  </table>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>F: CORTE DE RAÍCES</th>
+      <th>Seleccionar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Superficial</td>
+      <td>
+        <input
+          type="checkbox"
+          name="opcionesReducción"
+          value="SuperficialF"
+        />
+      </td>
+    </tr>
+        <td>Profunda</td>
+        <td>
+          <input
+            type="checkbox"
+            name="opcionesReducción"
+            value="ProfundaF"
+          />
+        </td>
+      </tr>
+    </tbody>
+    
+  </table>
+</table>
+
+<h3>OBSERVACIONES</h3>
+
+<div class="row mb-3">
+  <div class="col-md-6">
+    <label for="OBSERVACIONES" class="form-label">OBSERVACIONES</label>
+    <textarea class="form-control w-100" id="OBSERVACIONES" rows="8" style="font-size: 16px;"></textarea>
+  </div>
+</div>
+
+
+
+          </div>
+          
+        </div>
+          
+<h3>INSPECTOR/VERIFICADOR</h3>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="imagen" class="form-label">IMAGEN ANTES</label>
+                <input
+                  type="file"
+                  class="form-control"
+                  id="imagen"
+                  name="imagen"
+                  accept=".png, .jpg, .jpeg"
+                />
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="imagenD" class="form-label">IMAGEN DESPUES</label>
+                <input
+                  type="file"
+                  class="form-control"
+                  id="imagenD"
+                  name="imagenD"
+                  accept=".png, .jpg, .jpeg"
+                />
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label for="Calle2" class="form-label">Calle</label>
+              <input type="number" class="form-control" id="Calle2" />
+          </div>
+
+      <div class="col-md-6">
+        <label for="Informe" class="form-label">Informe N°</label>
+        <input type="number" class="form-control" id="Informe" />
+    </div>
+
+
+    <div class="inspector">
+
+      <div class="col-md-6">
+        <label for="NYP" class="form-label">Nombre y Apellido</label>
+        <input type="text" class="form-control" id="NYP" />
+    </div>
+
+      <div class="col-md-6">
+        <label for="DNI" class="form-label">DNI</label>
+        <input type="number" class="form-control" id="DNI" />
+    </div>
+
+    </div>
+
+            <span class="d-block pb-2">Firma digital aquí</span>
+            <div class="signature">
+              <canvas
+                id="signature-canvas"
+                style="border: 1px dashed red; width: 100%; height: 200px"
+              ></canvas>
+            </div>
+
+            <button type="submit" class="btn btn-primary mb-4">
+              Generar PDF
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="jspdf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
