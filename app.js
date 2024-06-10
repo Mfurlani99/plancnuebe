@@ -434,3 +434,15 @@ function resetForm() {
     // Limpiar la firma en el lienzo
     signaturePad.clear();
 }
+
+// Agregar un event listener al botón de borrar firma
+document.getElementById('borrarFirma').addEventListener('click', function() {
+    // Llamar a la función para limpiar la firma
+    clearSignature();
+});
+
+// Función para limpiar la firma
+function clearSignature() {
+    // Limpiar la firma en el lienzo
+    signaturePad.clear();
+}

@@ -188,3 +188,22 @@ input[type=checkbox]
   font-size: 110%;
   display: inline;
 }
+
+.botonoesfin {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#generarPDF,
+#borrarFirma {
+  transition: background-color 0.3s ease;
+}
+
+#generarPDF:hover {
+  background-color: green;
+}
+
+#borrarFirma:hover {
+  background-color: red;
+}
