@@ -48,8 +48,6 @@ window.addEventListener('load', async () => {
         var secoRadio = document.querySelector('input[name="Seco"]:checked');
         var edadRadio = document.querySelector('input[name="Edad"]:checked');
         var inclinacionRadio = document.querySelector('input[name="inclinacion"]:checked');
-        var pequenasSeleccion = document.querySelector('input[name="pequenas"]:checked');
-        var grandesSeleccion = document.querySelector('input[name="grandes"]:checked');
         var opcionesSeleccionadas = document.querySelectorAll('input[name="opciones"]:checked');
         var seleccionesFructificaciones = document.querySelectorAll('input[name="selecciones"]:checked');
         var opciones = document.querySelectorAll('input[name="opciones"]:checked');
@@ -59,6 +57,9 @@ window.addEventListener('load', async () => {
         var opcionesOBJETIVOS = document.querySelectorAll('input[name="opcionesOBJETIVOS"]:checked');
         var fisurasSeleccionadas = document.querySelector('input[name="provoca_fisuras"]:checked');
         var secoRadio = document.querySelector('input[name="Seco"]:checked');
+        var pequenasSeleccion = document.querySelectorAll('input[name^="pequenas"]:checked');
+        var grandesSeleccion = document.querySelectorAll('input[name^="grandes"]:checked');
+        
 
 
         generatePDF(fecha, aviso, arme, Cavidad, especie, numero, calle, secoRadio, edadRadio, Altura,
@@ -314,34 +315,41 @@ async function generatePDF(fecha, aviso, arme, Cavidad, especie, numero, calle, 
             console.log('No se ha seleccionado ninguna opción.');
         }
 
-        if (pequenasSeleccion) {
-            console.log('Pequeñas: ' + pequenasSeleccion.value);
-            // Realizar alguna acción, por ejemplo, marcar en la planilla
-            if (pequenasSeleccion.value === 'basal') {
-                pdf.circle(220, 605, 10, 'FD'); // Ejemplo de acción
-            } else if (pequenasSeleccion.value === 'media') {
-                pdf.circle(300, 605, 10, 'FD');
-            } else if (pequenasSeleccion.value === 'alto') {
-                pdf.circle(400, 605, 10, 'FD');
-            }
-        } else {
-            console.log('No se ha seleccionado ninguna opción para "Pequeñas".');
+      // Verificar y procesar las selecciones de "Pequeñas"
+if (pequenasSeleccion.length > 0) {
+    pequenasSeleccion.forEach(seleccion => {
+        console.log('Pequeñas: ' + seleccion.value);
+        if (seleccion.value === 'basal') {
+            pdf.circle(220, 605, 10, 'FD'); // Ejemplo de acción
+        } else if (seleccion.value === 'media') {
+            pdf.circle(300, 605, 10, 'FD');
+        } else if (seleccion.value === 'alto') {
+            pdf.circle(400, 605, 10, 'FD');
+        }else if (seleccion.value === 'Descortezamiento') {
+            pdf.circle(340, 545, 10, 'FD');
         }
+    });
+} else {
+    console.log('No se ha seleccionado ninguna opción para "Pequeñas".');
+}
 
-        if (grandesSeleccion) {
-            console.log('Grandes: ' + grandesSeleccion.value);
-            // Realizar alguna acción, por ejemplo, marcar en la planilla
-            if (grandesSeleccion.value === 'basal') {
-                pdf.circle(220, 640, 10, 'FD'); // Ejemplo de acción
-            } else if (grandesSeleccion.value === 'media') {
-                pdf.circle(300, 640, 10, 'FD');
-            } else if (grandesSeleccion.value === 'alto') {
-                pdf.circle(400, 640, 10, 'FD');
-            }
-        } else {
-            console.log('No se ha seleccionado ninguna opción para "Grandes".');
+
+
+// Verificar y procesar las selecciones de "Grandes"
+if (grandesSeleccion.length > 0) {
+    grandesSeleccion.forEach(seleccion => {
+        console.log('Grandes: ' + seleccion.value);
+        if (seleccion.value === 'basal') {
+            pdf.circle(220, 640, 10, 'FD'); // Ejemplo de acción
+        } else if (seleccion.value === 'media') {
+            pdf.circle(300, 640, 10, 'FD');
+        } else if (seleccion.value === 'alto') {
+            pdf.circle(400, 640, 10, 'FD');
         }
-
+    });
+} else {
+    console.log('No se ha seleccionado ninguna opción para "Grandes".');
+}
         //RECOMENDACIONES DEL INSPECTOR
 
         opcionesOBJETIVOS.forEach(function (opcionesOBJETIVOS) {

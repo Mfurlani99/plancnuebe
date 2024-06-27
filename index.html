@@ -53,7 +53,7 @@
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="numero" class="form-label">N°</label>
-                            <input type="number" class="form-control" id="numero" />
+                            <input type="text" class="form-control" id="numero" />
                         </div>
                     </div>
 
@@ -211,37 +211,52 @@
                     />
                   </td>
                 </tr>
+                
               </tbody>
             </table>
 
             <h3>FUSTE</h3>
             <table>
-              <thead>
-                <tr>
-                  <th rowspan="2">FUSTE</th>
-                  <th colspan="3">Descortezamiento: Cavidades</th>
-                </tr>
-                <tr>
-                  <th>basal</th>
-                  <th>media</th>
-                  <th>alto</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Pequeñas</td>
-                  <td><input type="radio" name="pequenas" value="basal" /></td>
-                  <td><input type="radio" name="pequenas" value="media" /></td>
-                  <td><input type="radio" name="pequenas" value="alto" /></td>
-                </tr>
-                <tr>
-                  <td>Grandes</td>
-                  <td><input type="radio" name="grandes" value="basal" /></td>
-                  <td><input type="radio" name="grandes" value="media" /></td>
-                  <td><input type="radio" name="grandes" value="alto" /></td>
-                </tr>
-              </tbody>
-            </table>
+  <thead>
+    <tr>
+      <th rowspan="2">FUSTE</th>
+      <th colspan="3">Cavidades</th>
+    </tr>
+    <tr>
+      <th>basal</th>
+      <th>media</th>
+      <th>alto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Pequeñas</td>
+      <td><input type="checkbox" name="pequenas_basal" value="basal" /></td>
+      <td><input type="checkbox" name="pequenas_media" value="media" /></td>
+      <td><input type="checkbox" name="pequenas_alto" value="alto" /></td>
+    </tr>
+    <tr>
+      <td>Grandes</td>
+      <td><input type="checkbox" name="grandes_basal" value="basal" /></td>
+      <td><input type="checkbox" name="grandes_media" value="media" /></td>
+      <td><input type="checkbox" name="grandes_alto" value="alto" /></td>
+    </tr>
+    
+  </tbody>
+</table>
+<table>
+  <tr>
+    <td>Descortezamiento</td>
+    <td>
+      <input
+        type="checkbox"
+        name="pequenas_basal"
+        value="Descortezamiento"
+      />
+    </td>
+  </tr>
+</table>
+
 
             <table>
               <thead>
@@ -252,7 +267,7 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>Fructificaciones</td>
+                  <td>Fructificaciones Fungicas</td>
                   <td>
                     <input
                       type="checkbox"
@@ -262,7 +277,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>Chorreados</td>
+                  <td>codominancias</td>
                   <td>
                     <input
                       type="checkbox"
@@ -272,7 +287,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>Codominancias</td>
+                  <td>Chorreados</td>
                   <td>
                     <input
                       type="checkbox"
