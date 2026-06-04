@@ -89,7 +89,7 @@ function resizeSignatureCanvas() {
 }
 
 function collectFormData() {
-    return {
+    const data = {
         fecha: valueOf('fecha'),
         aviso: valueOf('aviso'),
         arme: valueOf('arme'),
@@ -122,6 +122,13 @@ function collectFormData() {
         acciones: checkedValues('acciones'),
         corteRaices: checkedValues('corte_raices')
     };
+
+    if (data.inclinacion !== 'si') {
+        data.edad = '';
+        data.orientacion = [];
+    }
+
+    return data;
 }
 
 async function generatePDF(data) {
@@ -131,9 +138,7 @@ async function generatePDF(data) {
     const imgWidth = templateSize.width;
     const imgHeight = templateSize.height;
 
-    const signatureImage = signaturePad && !signaturePad.isEmpty()
-        ? signaturePad.toDataURL('image/png')
-        : null;
+    const signatureImage = getSignatureImage();
 
     const photos = INCLUIR_FOTOS_EN_PDF
         ? await loadSelectedPhotos()
@@ -173,7 +178,7 @@ function renderFirstPage(pdf, data, signatureImage, imgWidth, imgHeight) {
     renderObservaciones(pdf, data.observaciones, imgWidth, imgHeight);
 
     if (signatureImage) {
-        pdf.addImage(signatureImage, 'PNG', imgWidth * 0.36, imgHeight * 0.950, imgWidth * 0.25, imgHeight * 0.05);
+        pdf.addImage(signatureImage, 'JPEG', imgWidth * 0.36, imgHeight * 0.950, imgWidth * 0.25, imgHeight * 0.05);
     }
 }
 
@@ -207,10 +212,6 @@ function renderSelections(pdf, data, imgWidth, imgHeight) {
             mayor40: [0.718, 0.230],
             menor40: [0.832, 0.230]
         },
-        inclinacion: {
-            si: [0.687, 0.232],
-            no: [0.720, 0.232]
-        },
         fisuras: {
             si: [0.843, 0.397],
             no: [0.906, 0.397]
@@ -219,7 +220,6 @@ function renderSelections(pdf, data, imgWidth, imgHeight) {
 
     markSelected(pdf, radioMarks.seco[data.seco], imgWidth, imgHeight);
     markSelected(pdf, radioMarks.edad[data.edad], imgWidth, imgHeight);
-    markSelected(pdf, radioMarks.inclinacion[data.inclinacion], imgWidth, imgHeight, 10);
     markSelected(pdf, radioMarks.fisuras[data.fisuras], imgWidth, imgHeight);
 
     markMany(pdf, data.orientacion, {
@@ -244,7 +244,6 @@ function renderSelections(pdf, data, imgWidth, imgHeight) {
     }, imgWidth, imgHeight, 10);
 
     markMany(pdf, data.fuste, {
-        descortezamiento: [0.183, 0.309],
         fructificaciones: [0.376, 0.309],
         codominancias: [0.630, 0.309],
         chorreados: [0.788, 0.309]
@@ -395,6 +394,21 @@ function drawContainedImage(pdf, image, x, y, boxWidth, boxHeight) {
     const offsetY = y + (boxHeight - height) / 2;
 
     pdf.addImage(image.dataUrl, image.format, offsetX, offsetY, width, height);
+}
+
+function getSignatureImage() {
+    if (!signaturePad || signaturePad.isEmpty() || !signatureCanvas) return null;
+
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+
+    canvas.width = signatureCanvas.width;
+    canvas.height = signatureCanvas.height;
+    context.fillStyle = '#fff';
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.drawImage(signatureCanvas, 0, 0);
+
+    return canvas.toDataURL('image/jpeg', 0.92);
 }
 
 function loadDataUrl(url) {
