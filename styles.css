@@ -220,6 +220,11 @@ form {
   margin: 18px 0;
   padding: 12px;
   border-radius: 20px;
+  transition: max-height 180ms ease, padding 180ms ease, box-shadow 180ms ease;
+}
+
+.hub-toggle {
+  display: none;
 }
 
 .hub-label {
@@ -707,8 +712,52 @@ tbody tr:last-child td {
 
   .form-hub {
     grid-template-columns: 1fr;
-    max-height: 72vh;
+    max-height: min(62vh, 520px);
     overflow-y: auto;
+  }
+
+  .hub-summary {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 2px 12px;
+    align-items: center;
+  }
+
+  .hub-summary .hub-label,
+  .hub-summary > strong {
+    grid-column: 1;
+  }
+
+  .hub-toggle {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    display: inline-flex;
+    min-height: 38px;
+    align-items: center;
+    justify-content: center;
+    padding: 0.42rem 0.78rem;
+    color: #fffaf1;
+    background: var(--primary);
+    border: 1px solid var(--primary-dark);
+    border-radius: 999px;
+    font-size: 0.88rem;
+    font-weight: 800;
+  }
+
+  .hub-toggle:focus-visible {
+    outline: 3px solid rgba(217, 108, 28, 0.28);
+    outline-offset: 2px;
+  }
+
+  .form-hub.hub-collapsed {
+    max-height: 72px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .form-hub.hub-collapsed .hub-links,
+  .form-hub.hub-collapsed .hub-actions {
+    display: none;
   }
 
   .hub-links,
