@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reporte de Error - Planilla C9</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Afacad:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,700;9..144,800&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="error-page">
+  <a class="skip-link" href="#errorForm">Saltar al formulario de error</a>
+
+  <main class="app-shell container" aria-labelledby="errorPageTitle">
+    <header class="page-header error-hero">
+      <p class="eyebrow">C9 - Reporte técnico</p>
+      <h1 id="errorPageTitle">Aviso de error</h1>
+      <p class="lead">Completá este formulario para generar un PDF claro, ordenado y útil para corregir el problema sin idas y vueltas.</p>
+    </header>
+
+    <nav class="form-hub error-hub" aria-label="Acciones del reporte de error">
+      <div>
+        <span class="hub-label">Diagnóstico</span>
+        <strong>Sin datos personales</strong>
+      </div>
+      <div class="hub-links">
+        <a href="#contexto-error">Contexto</a>
+        <a href="#detalle-error">Detalle</a>
+        <a href="#tecnico-error">Técnico</a>
+        <a href="#generar-reporte">Generar</a>
+      </div>
+      <div class="hub-actions">
+        <a href="index.html" class="btn btn-outline-secondary btn-sm">Volver a la planilla</a>
+      </div>
+    </nav>
+
+    <p id="errorStatus" class="status-message" role="status" aria-live="polite"></p>
+
+    <form id="errorForm" class="error-form" novalidate>
+      <section id="contexto-error" class="form-section error-section" aria-labelledby="contextoErrorTitle">
+        <h2 id="contextoErrorTitle">Contexto del caso</h2>
+        <div class="row g-3">
+          <div class="col-md-4">
+            <label for="errorFecha" class="form-label">Fecha del error</label>
+            <input type="date" class="form-control" id="errorFecha" />
+          </div>
+          <div class="col-md-4">
+            <label for="errorAviso" class="form-label">Aviso</label>
+            <input type="text" class="form-control" id="errorAviso" autocomplete="off" />
+          </div>
+          <div class="col-md-4">
+            <label for="errorInforme" class="form-label">Informe N°</label>
+            <input type="text" class="form-control" id="errorInforme" autocomplete="off" />
+          </div>
+          <div class="col-md-8">
+            <label for="errorCalle" class="form-label">Calle</label>
+            <input type="text" class="form-control" id="errorCalle" autocomplete="address-line1" />
+          </div>
+          <div class="col-md-4">
+            <label for="errorNumero" class="form-label">Número / chapa</label>
+            <input type="text" class="form-control" id="errorNumero" autocomplete="off" />
+          </div>
+        </div>
+      </section>
+
+      <section id="detalle-error" class="form-section error-section" aria-labelledby="detalleErrorTitle">
+        <h2 id="detalleErrorTitle">Qué falló</h2>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label for="errorSeccion" class="form-label">Sección afectada</label>
+            <select class="form-control" id="errorSeccion" required>
+              <option value="">Seleccionar sección</option>
+              <option>Datos generales</option>
+              <option>Ubicación</option>
+              <option>Inclinación</option>
+              <option>Fuste</option>
+              <option>Raíz</option>
+              <option>Ramas</option>
+              <option>Hojas</option>
+              <option>Recomendaciones</option>
+              <option>Fotos / página 2</option>
+              <option>Firma</option>
+              <option>PDF final</option>
+              <option>Diseño / uso en teléfono</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label for="errorCampo" class="form-label">Campo o casillero exacto</label>
+            <input type="text" class="form-control" id="errorCampo" placeholder="Ej: Inclinación NO, Menos de 40°, DNI, foto después" required />
+          </div>
+        </div>
+
+        <fieldset class="choice-grid error-choice-grid">
+          <legend>Tipo de problema</legend>
+          <label class="choice-card"><input type="radio" name="errorTipo" value="No marca una casilla" required /> No marca una casilla</label>
+          <label class="choice-card"><input type="radio" name="errorTipo" value="Marca una casilla incorrecta" /> Marca una casilla incorrecta</label>
+          <label class="choice-card"><input type="radio" name="errorTipo" value="La marca queda corrida" /> La marca queda corrida</label>
+          <label class="choice-card"><input type="radio" name="errorTipo" value="No deja escribir" /> No deja escribir</label>
+          <label class="choice-card"><input type="radio" name="errorTipo" value="No genera el PDF" /> No genera el PDF</label>
+          <label class="choice-card"><input type="radio" name="errorTipo" value="Foto o firma mal ubicada" /> Foto o firma mal ubicada</label>
+          <label class="choice-card"><input type="radio" name="errorTipo" value="Otro" /> Otro</label>
+        </fieldset>
+
+        <div class="row g-3 mt-1">
+          <div class="col-md-6">
+            <label for="errorCargado" class="form-label">Qué completaste o seleccionaste</label>
+            <textarea class="form-control" id="errorCargado" rows="5" required placeholder="Ej: marqué Inclinación NO y generé el PDF"></textarea>
+          </div>
+          <div class="col-md-6">
+            <label for="errorEsperado" class="form-label">Qué debería haber pasado</label>
+            <textarea class="form-control" id="errorEsperado" rows="5" required placeholder="Ej: debería tachar NO y no marcar +40/-40"></textarea>
+          </div>
+          <div class="col-12">
+            <label for="errorResultado" class="form-label">Qué pasó realmente</label>
+            <textarea class="form-control" id="errorResultado" rows="5" required placeholder="Describí el resultado visible en pantalla o en el PDF"></textarea>
+          </div>
+          <div class="col-12">
+            <label for="errorPasos" class="form-label">Pasos para repetir el error</label>
+            <textarea class="form-control" id="errorPasos" rows="6" required placeholder="1. Abrí la planilla&#10;2. Completé...&#10;3. Generé PDF&#10;4. Vi que..."></textarea>
+          </div>
+        </div>
+      </section>
+
+      <section id="tecnico-error" class="form-section error-section" aria-labelledby="tecnicoErrorTitle">
+        <h2 id="tecnicoErrorTitle">Datos técnicos</h2>
+        <p class="section-note">Estos datos ayudan a reproducir el problema. No identifican a la persona.</p>
+        <div class="row g-3">
+          <div class="col-md-4">
+            <label for="errorDispositivo" class="form-label">Dispositivo</label>
+            <select class="form-control" id="errorDispositivo">
+              <option value="">Seleccionar</option>
+              <option>Celular</option>
+              <option>Tablet</option>
+              <option>Computadora</option>
+              <option>No sé</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label for="errorSistema" class="form-label">Sistema</label>
+            <select class="form-control" id="errorSistema">
+              <option value="">Seleccionar</option>
+              <option>Android</option>
+              <option>iPhone / iOS</option>
+              <option>Windows</option>
+              <option>Otro / no sé</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label for="errorNavegador" class="form-label">Navegador</label>
+            <select class="form-control" id="errorNavegador">
+              <option value="">Seleccionar</option>
+              <option>Chrome</option>
+              <option>Safari</option>
+              <option>Edge</option>
+              <option>Otro / no sé</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label for="errorUrgencia" class="form-label">Urgencia</label>
+            <select class="form-control" id="errorUrgencia">
+              <option>Media</option>
+              <option>Baja</option>
+              <option>Alta</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label for="errorCaptura" class="form-label">Captura o foto del error (opcional)</label>
+            <input type="file" class="form-control" id="errorCaptura" accept="image/png, image/jpeg" />
+          </div>
+        </div>
+      </section>
+
+      <section id="generar-reporte" class="form-section final-actions error-final-actions" aria-labelledby="generarErrorTitle">
+        <h2 id="generarErrorTitle">Generar reporte</h2>
+        <button type="submit" id="generarReporteError" class="btn btn-primary btn-lg">Generar reporte PDF</button>
+        <button type="reset" class="btn btn-outline-secondary btn-lg">Limpiar</button>
+        <a href="index.html" class="btn btn-outline-secondary btn-lg">Volver a la planilla</a>
+      </section>
+    </form>
+  </main>
+
+  <script src="jspdf.min.js"></script>
+  <script src="errores.js"></script>
+</body>
+</html>

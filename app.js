@@ -19,6 +19,7 @@ function initApp() {
     signatureCanvas = document.querySelector('#signature-canvas');
     setupSignaturePad();
     restoreDraft();
+    syncInclinacionControls();
     updateProgress();
 
     form.addEventListener('submit', async (event) => {
@@ -46,6 +47,7 @@ function initApp() {
     });
 
     form.addEventListener('change', () => {
+        syncInclinacionControls();
         saveDraft(false);
         updateProgress();
     });
@@ -178,7 +180,7 @@ function renderFirstPage(pdf, data, signatureImage, imgWidth, imgHeight) {
     renderObservaciones(pdf, data.observaciones, imgWidth, imgHeight);
 
     if (signatureImage) {
-        pdf.addImage(signatureImage, 'JPEG', imgWidth * 0.36, imgHeight * 0.950, imgWidth * 0.25, imgHeight * 0.05);
+        pdf.addImage(signatureImage, 'JPEG', imgWidth * 0.36, imgHeight * 0.925, imgWidth * 0.25, imgHeight * 0.045);
     }
 }
 
@@ -212,6 +214,10 @@ function renderSelections(pdf, data, imgWidth, imgHeight) {
             mayor40: [0.718, 0.230],
             menor40: [0.832, 0.230]
         },
+        inclinacion: {
+            si: [0.639, 0.230],
+            no: [0.675, 0.230]
+        },
         fisuras: {
             si: [0.843, 0.397],
             no: [0.906, 0.397]
@@ -219,6 +225,7 @@ function renderSelections(pdf, data, imgWidth, imgHeight) {
     };
 
     markSelected(pdf, radioMarks.seco[data.seco], imgWidth, imgHeight);
+    markSelected(pdf, radioMarks.inclinacion[data.inclinacion], imgWidth, imgHeight, 8);
     markSelected(pdf, radioMarks.edad[data.edad], imgWidth, imgHeight);
     markSelected(pdf, radioMarks.fisuras[data.fisuras], imgWidth, imgHeight);
 
@@ -286,15 +293,15 @@ function renderSelections(pdf, data, imgWidth, imgHeight) {
         limpieza: [0.330, 0.623],
         aclareo: [0.330, 0.645],
         refaldado: [0.330, 0.666],
-        terciado: [0.330, 0.687],
-        balanceo: [0.512, 0.602]
+        terciado: [0.330, 0.687]
     }, imgWidth, imgHeight);
+    if (data.tiposPoda.includes('balanceo')) markSelected(pdf, [0.512, 0.602], imgWidth, imgHeight, 10);
 
     markMany(pdf, data.acciones, {
-        extraccion: [0.512, 0.618],
         trasplante: [0.512, 0.645],
         tratamiento_sanitario: [0.512, 0.668]
     }, imgWidth, imgHeight);
+    if (data.acciones.includes('extraccion')) markSelected(pdf, [0.512, 0.618], imgWidth, imgHeight, 10);
 
     markMany(pdf, data.corteRaices, {
         superficial: [0.801, 0.623],
@@ -476,6 +483,7 @@ function buildFileName(calle, numero) {
 
 function resetForm() {
     document.querySelector('#form').reset();
+    syncInclinacionControls();
     clearSignature();
     updateProgress();
 }
@@ -533,7 +541,17 @@ function restoreDraft() {
         });
     });
 
+    syncInclinacionControls();
     updateProgress();
+}
+
+function syncInclinacionControls() {
+    const hasInclinacion = checkedValue('inclinacion') === 'si';
+
+    document.querySelectorAll('input[name="Edad"], input[name="orientacion"]').forEach((element) => {
+        element.disabled = !hasInclinacion;
+        if (!hasInclinacion) element.checked = false;
+    });
 }
 
 function clearDraft() {
